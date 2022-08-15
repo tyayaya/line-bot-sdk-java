@@ -34,7 +34,7 @@ import java.util.*;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.net.*;
-import org.jsoup.*;
+import com.example.bot.spring.echo.lib.jsoup.*;
 
 import com.example.bot.spring.echo.lib.kuromoji.ipadic.Token;
 import com.example.bot.spring.echo.lib.kuromoji.ipadic.Tokenizer;
