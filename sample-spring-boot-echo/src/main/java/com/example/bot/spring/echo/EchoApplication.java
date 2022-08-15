@@ -34,12 +34,12 @@ import java.util.*;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.net.*;
-import com.example.bot.spring.echo.lib.jsoup.*;
+import org.jsoup.*;
 
-import com.example.bot.spring.echo.lib.kuromoji.ipadic.Token;
-import com.example.bot.spring.echo.lib.kuromoji.ipadic.Tokenizer;
-import com.example.bot.spring.echo.lib.jackson.core.type.TypeReference;
-import com.example.bot.spring.echo.lib.jackson.databind.*;
+import com.atilika.kuromoji.ipadic.Token;
+import com.atilika.kuromoji.ipadic.Tokenizer;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.*;
 
 
 @SpringBootApplication
