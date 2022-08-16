@@ -287,7 +287,15 @@ public class EchoApplication {
 		Map<String, Object> entityMap = (Map<String, Object>)((Map<String, Object>)list.get(0).get("entities")).get(id);
 		@SuppressWarnings("unchecked")
 		Map<String, Object> labelMap = (Map<String, Object>)entityMap.get("labels");
-		jalabel = (String)((Map)labelMap.get("ja")).get("value");
+		@SuppressWarnings("unchecked")
+		Map<String, Object> jaMap = (Map<String, Object>)labelMap.get("ja");
+		if(jaMap == null) {
+			@SuppressWarnings("unchecked")
+			String enlabel = (String)((Map<String, Object>)labelMap.get("en")).get("value");
+			return enlabel;
+		}
+		@SuppressWarnings("unchecked")
+		jalabel = (String)jaMap.get("value");
 		return jalabel;
     }
     
