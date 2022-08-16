@@ -144,6 +144,11 @@ public class EchoApplication {
 						@SuppressWarnings("unchecked")
 						Map<String, Object> map = (Map<String, Object>)val;
 						String id = (String)map.get("id");
+						if(id == null) {
+							String amount = (String)map.get("amount");
+							vals.add(amount);
+							return vals;
+						}
 						String jaLabel = getLabelById(id);
 						vals.add(jaLabel);
 					}else {
