@@ -287,7 +287,14 @@ public class EchoApplication {
 		Map<String, Object> entityMap = (Map<String, Object>)((Map<String, Object>)list.get(0).get("entities")).get(id);
 		@SuppressWarnings("unchecked")
 		Map<String, Object> labelMap = (Map<String, Object>)entityMap.get("labels");
-		jalabel = (String)((Map)labelMap.get("ja")).get("value");
+		Map<String, Object> jaMap = (Map<String, Object>)labelMap.get("ja");
+		if(jaMap == null) {
+			List<String> labelset = new ArrayList<String>(labelMap.keySet());
+			String language = labelset.get(rand.nextInt(labelset.size()));
+			String label = (String)((Map)labelMap.get(language)).get("value");
+			return label + "(" + language + ")";
+		}
+		jalabel = (String)jaMap.get("value");
 		return jalabel;
     }
     
