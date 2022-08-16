@@ -63,7 +63,6 @@ public class EchoApplication {
         System.out.println("event: " + event);
     }
 
-	@SuppressWarning("unchecked")
     public static String generateResponse(String userInput) {
 		String responce = "";
 		ArrayList<String> names = new ArrayList<>();
@@ -89,6 +88,7 @@ public class EchoApplication {
 		List<String> proplds = getWikidataProplds(B);
 		String wdJson = getWikidataJson(A);
 		Map<String, Object> wdMap = json2Map(wdJson);
+		@SuppressWarnings("unchecked")
 		List<Map<String, Object>> list = (List<Map<String, Object>>)wdMap.get("result");
 		if(list.size()==0) {
 			return A + "の意味が分かりません。";
@@ -113,7 +113,6 @@ public class EchoApplication {
 	 * @param res
 	 * @return
 	 */
-	@SuppressWarning("unchecked")
 	public static String getEntityID(Map<String, Object> res) {
 		return (String)((Map)res.get("entities")).keySet().iterator().next();
 	}
@@ -124,7 +123,6 @@ public class EchoApplication {
 	 * @param prop
 	 * @return
 	 */
-	@SuppressWarning("unchecked")
 	public static List<String> getPropVals(Map<String, Object> res, String prop) {
 		List<String> vals = new ArrayList<String>();
 		String entityID = getEntityID(res);
