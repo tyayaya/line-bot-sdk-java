@@ -295,7 +295,7 @@ public class EchoApplication {
 			return enlabel;
 		}
 		@SuppressWarnings("unchecked")
-		jalabel = (String)jaMap.get("value");
+		jalabel += (String)jaMap.get("value");
 		return jalabel;
     }
     
