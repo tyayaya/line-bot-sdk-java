@@ -20,5 +20,23 @@ dependencies {
     implementation(project(":line-bot-spring-boot"))
     implementation("org.springframework.boot:spring-boot-starter-web")
 
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
+    implementation("com.fasterxml.jackson.core:jackson-core:2.11.2")
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.11.2")
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations
+    implementation("com.fasterxml.jackson.core:jackson-annotations:2.11.2")
+
+    // https://mvnrepository.com/artifact/org.jsoup/jsoup
+    implementation("org.jsoup:jsoup:1.13.1")
+
+    // https://mvnrepository.com/artifact/com.atilika.kuromoji/kuromoji-core
+    implementation("com.atilika.kuromoji:kuromoji-core:0.9.0")
+
+    // https://mvnrepository.com/artifact/com.atilika.kuromoji/kuromoji-ipadic
+    implementation("com.atilika.kuromoji:kuromoji-ipadic:0.9.0")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
