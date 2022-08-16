@@ -63,6 +63,7 @@ public class EchoApplication {
         System.out.println("event: " + event);
     }
 
+	@SuppressWarning("unchecked")
     public static String generateResponse(String userInput) {
 		String responce = "";
 		ArrayList<String> names = new ArrayList<>();
@@ -112,6 +113,7 @@ public class EchoApplication {
 	 * @param res
 	 * @return
 	 */
+	@SuppressWarning("unchecked")
 	public static String getEntityID(Map<String, Object> res) {
 		return (String)((Map)res.get("entities")).keySet().iterator().next();
 	}
@@ -122,6 +124,7 @@ public class EchoApplication {
 	 * @param prop
 	 * @return
 	 */
+	@SuppressWarning("unchecked")
 	public static List<String> getPropVals(Map<String, Object> res, String prop) {
 		List<String> vals = new ArrayList<String>();
 		String entityID = getEntityID(res);
