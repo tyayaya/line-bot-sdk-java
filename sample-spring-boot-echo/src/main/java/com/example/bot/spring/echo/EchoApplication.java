@@ -314,7 +314,7 @@ public class EchoApplication {
     	String responce = "";
     	Random rand = new Random();
 		List<String> trivia = getPropIds(list.get(0));
-		responce = getLabelById(getWikidataIds(A).get(0)) + "の" + B + "は分かりませんが、" + A + "の";
+		responce = getLabelById(getWikidataIds(A).get(0)) + "の" + B + "は分かりませんが、" + getLabelById(getWikidataIds(A).get(0)) + "の";
 		List<String> trivals = new ArrayList<String>();
 		while(true) {
 			int num = rand.nextInt(trivia.size());
