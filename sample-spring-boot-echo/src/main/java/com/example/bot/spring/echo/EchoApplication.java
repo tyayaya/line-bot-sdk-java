@@ -128,16 +128,20 @@ public class EchoApplication {
 		String entityID = getEntityID(res);
 		@SuppressWarnings("unchecked")
 		Map<String, Object> entityMap = (Map<String, Object>)((Map<String, Object>)res.get("entities")).get(entityID);
+		@SuppressWarnings("unchecked")
 		Map<String, Object> claimMap = (Map<String, Object>)entityMap.get("claims");
 		if (claimMap != null) {	
+			@SuppressWarnings("unchecked")
 			List<Map<String, Object>> propList = (List<Map<String, Object>>)claimMap.get(prop);
 			if (propList != null) {
 				for (Map<String, Object> propMap: propList) {
+					@SuppressWarnings("unchecked")
 					Map<String,Object> valMap = (Map<String, Object>)((Map<String, Object>)propMap.get("mainsnak")).get("datavalue");
 					Object val = valMap.get("value");
 					if(val instanceof String) {
 						vals.add((String)val);
 					}else if(val instanceof Map) {
+						@SuppressWarnings("unchecked")
 						Map<String, Object> map = (Map<String, Object>)val;
 						String id = (String)map.get("id");
 						String jaLabel = getLabelById(id);
@@ -193,6 +197,7 @@ public class EchoApplication {
 		              + "&search=" + encodedQuery;
 		@SuppressWarnings("unchecked")
 		Map<String, Object> map = json2Map(getData(url));
+		@SuppressWarnings("unchecked")
 		List<Map<String, Object>> list = (List<Map<String, Object>>)map.get("search");
 		List<String> ids = new ArrayList<String>();
 		for (Map<String, Object> entMap: list) {
@@ -212,6 +217,7 @@ public class EchoApplication {
 		              + "&search=" + encodedQuery;
 		@SuppressWarnings("unchecked")
 		Map<String, Object> map = json2Map(getData(url));
+		@SuppressWarnings("unchecked")
 		List<Map<String, Object>> list = (List<Map<String, Object>>)map.get("search");
 		List<String> proplds = new ArrayList<String>();
 		for (Map<String, Object> entMap: list) {
@@ -272,7 +278,9 @@ public class EchoApplication {
     	Map<String, Object> map = json2Map(json);
 		@SuppressWarnings("unchecked")
     	List<Map<String, Object>> list = (List<Map<String, Object>>)map.get("result");
+		@SuppressWarnings("unchecked")
 		Map<String, Object> entityMap = (Map<String, Object>)((Map<String, Object>)list.get(0).get("entities")).get(id);
+		@SuppressWarnings("unchecked")
 		Map<String, Object> labelMap = (Map<String, Object>)entityMap.get("labels");
 		jalabel = (String)((Map)labelMap.get("ja")).get("value");
 		return jalabel;
@@ -284,6 +292,7 @@ public class EchoApplication {
 		String entityID = getEntityID(res);
 		@SuppressWarnings("unchecked")
 		Map<String, Object> entityMap = (Map<String, Object>)((Map<String, Object>)res.get("entities")).get(entityID);
+		@SuppressWarnings("unchecked")
 		Map<String, Object> claimMap = (Map<String, Object>)entityMap.get("claims");
 		if (claimMap != null) {	
 			propids = new ArrayList<>(claimMap.keySet());
