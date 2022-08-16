@@ -278,6 +278,7 @@ public class EchoApplication {
     }
     
     public static String getLabelById(String id) {
+		Random rand = new Random();
     	String jalabel = "";
     	String json = getWikidataJson(id);
     	Map<String, Object> map = json2Map(json);
@@ -287,6 +288,7 @@ public class EchoApplication {
 		Map<String, Object> entityMap = (Map<String, Object>)((Map<String, Object>)list.get(0).get("entities")).get(id);
 		@SuppressWarnings("unchecked")
 		Map<String, Object> labelMap = (Map<String, Object>)entityMap.get("labels");
+		@SuppressWarnings("unchecked")
 		Map<String, Object> jaMap = (Map<String, Object>)labelMap.get("ja");
 		if(jaMap == null) {
 			List<String> labelset = new ArrayList<String>(labelMap.keySet());
