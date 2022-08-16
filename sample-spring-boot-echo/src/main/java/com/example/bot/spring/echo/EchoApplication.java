@@ -126,6 +126,7 @@ public class EchoApplication {
 	public static List<String> getPropVals(Map<String, Object> res, String prop) {
 		List<String> vals = new ArrayList<String>();
 		String entityID = getEntityID(res);
+		@SuppressWarnings("unchecked")
 		Map<String, Object> entityMap = (Map<String, Object>)((Map<String, Object>)res.get("entities")).get(entityID);
 		Map<String, Object> claimMap = (Map<String, Object>)entityMap.get("claims");
 		if (claimMap != null) {	
@@ -190,6 +191,7 @@ public class EchoApplication {
 		}	
 		String url = "https://www.wikidata.org/w/api.php?action=wbsearchentities&language=ja&format=json"
 		              + "&search=" + encodedQuery;
+		@SuppressWarnings("unchecked")
 		Map<String, Object> map = json2Map(getData(url));
 		List<Map<String, Object>> list = (List<Map<String, Object>>)map.get("search");
 		List<String> ids = new ArrayList<String>();
@@ -208,6 +210,7 @@ public class EchoApplication {
 		}	
 		String url = "https://www.wikidata.org/w/api.php?action=wbsearchentities&language=ja&format=json&type=property"
 		              + "&search=" + encodedQuery;
+		@SuppressWarnings("unchecked")
 		Map<String, Object> map = json2Map(getData(url));
 		List<Map<String, Object>> list = (List<Map<String, Object>>)map.get("search");
 		List<String> proplds = new ArrayList<String>();
@@ -267,6 +270,7 @@ public class EchoApplication {
     	String jalabel = "";
     	String json = getWikidataJson(id);
     	Map<String, Object> map = json2Map(json);
+		@SuppressWarnings("unchecked")
     	List<Map<String, Object>> list = (List<Map<String, Object>>)map.get("result");
 		Map<String, Object> entityMap = (Map<String, Object>)((Map<String, Object>)list.get(0).get("entities")).get(id);
 		Map<String, Object> labelMap = (Map<String, Object>)entityMap.get("labels");
@@ -278,6 +282,7 @@ public class EchoApplication {
     	List<String> propids = new ArrayList<String>();
     	List<String> vals = new ArrayList<String>();
 		String entityID = getEntityID(res);
+		@SuppressWarnings("unchecked")
 		Map<String, Object> entityMap = (Map<String, Object>)((Map<String, Object>)res.get("entities")).get(entityID);
 		Map<String, Object> claimMap = (Map<String, Object>)entityMap.get("claims");
 		if (claimMap != null) {	
