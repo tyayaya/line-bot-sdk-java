@@ -291,10 +291,16 @@ public class EchoApplication {
 		@SuppressWarnings("unchecked")
 		Map<String, Object> jaMap = (Map<String, Object>)labelMap.get("ja");
 		if(jaMap == null) {
-			List<String> labelset = new ArrayList<String>(labelMap.keySet());
-			String language = labelset.get(rand.nextInt(labelset.size()));
-			String label = (String)((Map)labelMap.get(language)).get("value");
-			return label + "(" + language + ")";
+			@SuppressWarnings("unchecked")
+			Map<String, Object> enMap = (Map<String, Object>)labelMap.get("en");
+			if(enMap == null) {
+				List<String> labelset = new ArrayList<String>(labelMap.keySet());
+				String language = labelset.get(rand.nextInt(labelset.size()));
+				String label = (String)((Map)labelMap.get(language)).get("value");
+				return label + "(" + language + ")";
+			}
+			String enlabel = (String)enMap.get("value");
+			return enlabel + "(en)";
 		}
 		jalabel = (String)jaMap.get("value");
 		return jalabel;
