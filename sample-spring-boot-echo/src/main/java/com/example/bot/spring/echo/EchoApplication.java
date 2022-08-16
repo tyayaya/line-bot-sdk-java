@@ -125,18 +125,18 @@ public class EchoApplication {
 	public static List<String> getPropVals(Map<String, Object> res, String prop) {
 		List<String> vals = new ArrayList<String>();
 		String entityID = getEntityID(res);
-		Map<String, Object> entityMap = (Map)((Map)res.get("entities")).get(entityID);
-		Map<String, Object> claimMap = (Map)entityMap.get("claims");
+		Map<String, Object> entityMap = (Map<String, Object>)((Map<String, Object>)res.get("entities")).get(entityID);
+		Map<String, Object> claimMap = (Map<String, Object>)entityMap.get("claims");
 		if (claimMap != null) {	
 			List<Map<String, Object>> propList = (List<Map<String, Object>>)claimMap.get(prop);
 			if (propList != null) {
 				for (Map<String, Object> propMap: propList) {
-					Map<String,Object> valMap = (Map)((Map)propMap.get("mainsnak")).get("datavalue");
+					Map<String,Object> valMap = (Map<String, Object>)((Map<String, Object>)propMap.get("mainsnak")).get("datavalue");
 					Object val = valMap.get("value");
 					if(val instanceof String) {
 						vals.add((String)val);
 					}else if(val instanceof Map) {
-						Map<String, Object> map = (Map)val;
+						Map<String, Object> map = (Map<String, Object>)val;
 						String id = (String)map.get("id");
 						String jaLabel = getLabelById(id);
 						vals.add(jaLabel);
@@ -267,8 +267,8 @@ public class EchoApplication {
     	String json = getWikidataJson(id);
     	Map<String, Object> map = json2Map(json);
     	List<Map<String, Object>> list = (List<Map<String, Object>>)map.get("result");
-		Map<String, Object> entityMap = (Map)((Map)list.get(0).get("entities")).get(id);
-		Map<String, Object> labelMap = (Map)entityMap.get("labels");
+		Map<String, Object> entityMap = (Map<String, Object>)((Map<String, Object>)list.get(0).get("entities")).get(id);
+		Map<String, Object> labelMap = (Map<String, Object>)entityMap.get("labels");
 		jalabel = (String)((Map)labelMap.get("ja")).get("value");
 		return jalabel;
     }
@@ -277,8 +277,8 @@ public class EchoApplication {
     	List<String> propids = new ArrayList<String>();
     	List<String> vals = new ArrayList<String>();
 		String entityID = getEntityID(res);
-		Map<String, Object> entityMap = (Map)((Map)res.get("entities")).get(entityID);
-		Map<String, Object> claimMap = (Map)entityMap.get("claims");
+		Map<String, Object> entityMap = (Map<String, Object>)((Map<String, Object>)res.get("entities")).get(entityID);
+		Map<String, Object> claimMap = (Map<String, Object>)entityMap.get("claims");
 		if (claimMap != null) {	
 			propids = new ArrayList<>(claimMap.keySet());
 		}
